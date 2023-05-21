@@ -1,0 +1,12 @@
+apiVersion: v1
+Kind: Service
+metadata:
+  name: slack-service
+spec:
+  selector:
+    app: slack-dockerapp
+  type: NodePort
+  ports:
+  - name: slack-service
+    port: 80
+    targetPort: 30004

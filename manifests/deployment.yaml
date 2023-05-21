@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slack-dockerapp
+spec:
+  selector:
+    matchLabels:
+      app: slack-dockerapp
+  template:
+    metadata:
+      labels:
+        app: slack-dockerapp
+    spec:
+      containers:
+      - name: slack-dockerapp
+        image: registry.gitlab.com/kumail.r7/slack-docker
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
